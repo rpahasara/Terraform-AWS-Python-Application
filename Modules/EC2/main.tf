@@ -14,7 +14,7 @@ resource "aws_instance" "ec2" {
     connection {
         type        = "ssh"
         user        = "ubuntu"                # or ec2-user, depending on the AMI
-        private_key = file("C:/Users/ravin/Downloads/aws-new.pem")
+        private_key = file("your_private_key")
         host        = self.public_ip
     }
 
