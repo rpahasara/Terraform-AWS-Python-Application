@@ -1,0 +1,42 @@
+# Terraform directories and files
+.terraform/                 # Local .terraform cache
+terraform.tfstate          # Terraform state file
+terraform.tfstate.backup   # Backup of the state file
+crash.log                  # Crash logs
+
+# Terraform variable files (can contain secrets)
+*.tfvars
+*.tfvars.json
+
+# Sensitive output
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform lock file (can be included depending on your policy)
+.terraform.lock.hcl
+
+# Plan files
+*.tfplan
+
+# Editor-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+*.tmp
+*.log
+
+# macOS and Linux OS junk files
+.DS_Store
+Thumbs.db
+
+# Python-specific (in case your app or provisioner uses it)
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+venv/
+env/
