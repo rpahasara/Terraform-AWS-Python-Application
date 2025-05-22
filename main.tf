@@ -14,7 +14,7 @@ module "ec2" {
     source = "./Modules/EC2"
     ami = "ami-084568db4383264d4"
     instance_type = "t2.micro"
-    key_name = "aws-new"
+    key_name = "your_key_name"
     subnet_id = module.vpc.subnet_id
     ec2_sg_id = module.security_group.ec2_sg_id
 }
