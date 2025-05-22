@@ -15,7 +15,7 @@ This project demonstrates how to:
 
 ```bash
 .
-├── Modules/
+├── Modules/                   # Terraform modules (VPC, EC2, Security Group)
 │   ├── EC2/
 │   │   ├── main.tf
 │   │   ├── variables.tf
@@ -35,12 +35,12 @@ This project demonstrates how to:
 │   ├── requirements.txt       # Python dependencies
 │   └── templates/
 │       └── index.html
-├── main.tf
-├── variables.tf
-├── output.tf
-├── provider.tf
-├── terraform.tfvars
-├── backend.tf
+├── main.tf                    # Root Terraform config
+├── variables.tf               # Global variables
+├── output.tf                  
+├── provider.tf                # AWS provider config
+├── terraform.tfvars           # Values for variables
+├── backend.tf                 # Remote backend config
 └── README.md
 ```
 ## 🧠 Architecture
@@ -64,6 +64,19 @@ This setup uses a modular approach to organize resources:
 - SSH key pair created in your AWS region
 
 - Git
+
+- Create an S3 bucket manually for storing the remote Terraform state. You'll need to update backend.tf with:
+
+```bash
+terraform {
+  backend "s3" {
+    bucket = "your-unique-s3-bucket-name"
+    key    = "terraform/state"
+    region = "us-east-1"
+  }
+}
+```
+✅ This S3 bucket must exist before you initialize Terraform with `terraform init`
 
 
 ## 🧪 How It Works
